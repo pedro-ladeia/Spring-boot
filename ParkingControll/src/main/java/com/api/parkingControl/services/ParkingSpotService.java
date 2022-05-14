@@ -1,12 +1,13 @@
 package com.api.parkingControl.services;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.api.parkingControl.model.ParkingSpotModel;
@@ -36,8 +37,8 @@ public class ParkingSpotService {
 	}
 	
 	
-	public List<ParkingSpotModel> findAll() {
-		return parkingSpotRepository.findAll();
+	public Page<ParkingSpotModel> findAll(Pageable pageable) {
+		return parkingSpotRepository.findAll(pageable);
 	}
 	
 	
